@@ -38,7 +38,7 @@
       </div>
     </div>
     <div class="row justify-content-center ">
-      <div class="col-6 d-inline-flex justify-content-evenly">
+      <div class="col-md-6 d-inline-flex justify-content-evenly">
         <h3><strong>Juegos Registrados: </strong>{{ dataGames.length }}</h3>
         <h3><strong>Stock Total: </strong>{{ stockTotal }}</h3>
       </div>
