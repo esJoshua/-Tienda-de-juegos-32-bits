@@ -2,9 +2,14 @@
   <div>
     <hr />
     <ul>
-      <li
+    <!--   <li
         v-for="(game, i) in dataGames"
         :key="i"
+        :style="`background-color: ${game.color}`"
+      > OPCION 1-->
+      <li
+        v-for="(game) in productos"
+        :key="game.codigo"
         :style="`background-color: ${game.color}`"
       >
         {{ game.codigo }} | {{ game.nombre }} | {{ game.stock }} |
@@ -15,11 +20,17 @@
   </div>
 </template>
 <script>
-import { mapState } from "vuex";
+/* import { mapState } from "vuex"; OPCION 1*/
 export default {
   name: "GamesList",
-  computed: {
+  /* computed: {
     ...mapState(["dataGames"]),
+  }, OPCION 1*/
+  props: {
+    productos: {
+      type: Array,
+      default: () => [],
+    },
   },
 };
 </script>

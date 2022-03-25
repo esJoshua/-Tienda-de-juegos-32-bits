@@ -1,3 +1,4 @@
+import { fill } from "core-js/core/array";
 import Vue from "vue";
 import Vuex from "vuex";
 
@@ -6,7 +7,8 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
     dataGames: [],
-      },
+    filter: "",
+  },
   getters: {
     stockTotal(state) {
       return state.dataGames.reduce((accumulator, dataGames) => {
@@ -15,11 +17,15 @@ const store = new Vuex.Store({
         return accumulator + dataGames.stock;
       }, 0);
     },
+    /* asi lo hice originalmente, rama master (opcion1)
     findGame: (state) => (codigo) => {
       return state.dataGames.filter((game) => {
-        console.log(codigo)
+        console.log(codigo);
         return game.codigo == codigo;
       });
+    }, */
+    filterData(state) {
+      return state.data.filter((fil) => fill.codigo.includes(state.filter));
     },
   },
   mutations: {
@@ -83,6 +89,15 @@ const store = new Vuex.Store({
       console.log(data);
       commit("SET_DATA", data);
     },
+    /* asi se hace con axios teniendo la data en .json en el public
+    async getData({ commit }) {
+      try {
+        const request = await axios("data.json");
+        commit("SET_DATA", request.data);
+      } catch (error) {
+        console.error(error);
+      }
+    }, */
   },
 });
 

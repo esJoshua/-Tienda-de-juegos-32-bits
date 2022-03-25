@@ -1,19 +1,30 @@
 <template>
   <div class="container mt-5">
-        <div class="row">
+    <div class="row">
       <div class="input-group mb-3 col-12 text-center justify-content-evenly">
         <div>
           <span class="input-group-text">Escribe el codigo del juego</span>
-          <input
+          <!-- OPCION 1 <input
             type="text"
             class="form-control text-center"
             v-model="findGameVmodel"
+          /> -->
+          <input
+            type="text"
+            class="form-control text-center"
+            v-model="filter"
           />
         </div>
         <div class="col-6">
-          <table
+          <!-- <table
             class="table"
             v-for="(game, i) in findGameSet"
+            :key="i"
+            :style="`background-color: ${game.color}`"
+          > OPCION 1-->
+          <table
+            class="table"
+            v-for="(game, i) in filterData"
             :key="i"
             :style="`background-color: ${game.color}`"
           >
@@ -45,7 +56,7 @@
     </div>
     <div class="row  justify-content-center">
       <div class="col-md-6">
-        <GamesList />
+        <GamesList :productos="data" />
       </div>
     </div>
   </div>
@@ -58,24 +69,25 @@ export default {
   name: "BusquedaView",
   data() {
     return {
-      findGameVmodel: "",
+     /*  findGameVmodel: "", OPCION 1*/
     };
   },
   computed: {
-    ...mapGetters(["stockTotal", "findGame"]),
+    ...mapGetters(["stockTotal", "filterData"]),
+    /* ...mapGetters(["stockTotal", "findGame"]), OPCION 1 */
     /*  Probando otra forma, mismo resultado linea de arriba
       stockTotal() {
       return this.$store.getters.stockTotal;
     }, */
-    findGameSet() {
+   /*  findGameSet() {
       return this.findGame(this.findGameVmodel);
-    },
-    /* Probando otra forma, mismo resultado linea de arriba 
+    }, OPCION 1*/
+    /* Probando otra forma, mismo resultado linea de arriba
     findGame() {
       return this.$store.getters.findGame(this.findGameVmodel);
     }, */
-
-    ...mapState(["dataGames"]),
+    ...mapState(["filter", "data"]),
+    /* ...mapState(["dataGames"]),  OPCION 1*/
     /*Probando otra forma, mismo resultado linea de arriba
        stockGames() {
       return this.$store.state.dataGames.length;
@@ -87,5 +99,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
