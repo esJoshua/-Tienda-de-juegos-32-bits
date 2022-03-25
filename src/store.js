@@ -24,7 +24,7 @@ const store = new Vuex.Store({
       });
     }, */
     filterData(state) {
-      return state.dataGames.filter((fill) => fill.codigo.includes(state.filter));
+      return state.dataGames.filter((fil) => fil.codigo.includes(state.filter) || fil.nombre.includes(state.filter));
     },
   },
   mutations: {

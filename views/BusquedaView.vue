@@ -41,7 +41,7 @@
                 <th scope="row">{{ game.codigo }}</th>
                 <td>{{ game.nombre }}</td>
                 <td>{{ game.stock }}</td>
-                <td>{{ game.precio }}</td>
+                <td>${{ game.precio.toLocaleString("DE") }}</td>
               </tr>
             </tbody>
           </table>

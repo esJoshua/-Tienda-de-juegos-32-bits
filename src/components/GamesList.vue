@@ -13,7 +13,7 @@
         :style="`background-color: ${game.color}`"
       >
         {{ game.codigo }} | {{ game.nombre }} | {{ game.stock }} |
-        {{ game.precio }}
+        ${{ game.precio.toLocaleString("DE") }}
       </li>
     </ul>
     <hr />
