@@ -30,7 +30,7 @@
                 <th scope="row">{{ game.codigo }}</th>
                 <td>{{ game.nombre }}</td>
                 <td>{{ game.stock }}</td>
-                <td>{{ game.precio }}</td>
+                <td>${{ game.precio.toLocaleString("DE") }}</td>
               </tr>
             </tbody>
           </table>
@@ -45,7 +45,7 @@
     </div>
     <div class="row  justify-content-center">
       <div class="col-md-6">
-        <GamesList />
+        <GamesList :gameListProps="dataGames" />
       </div>
     </div>
   </div>

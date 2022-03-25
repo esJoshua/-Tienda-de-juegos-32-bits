@@ -16,10 +16,7 @@ const store = new Vuex.Store({
       }, 0);
     },
     findGame: (state) => (codigo) => {
-      return state.dataGames.filter((game) => {
-        console.log(codigo);
-        return game.codigo == codigo;
-      });
+      return state.dataGames.filter((game) => game.codigo === codigo);
     },
   },
   mutations: {
