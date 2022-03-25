@@ -12,7 +12,7 @@
           <input
             type="text"
             class="form-control text-center"
-            v-model="filter"
+            v-model="filterProduct"
           />
         </div>
         <div class="col-6">
@@ -24,8 +24,8 @@
           > OPCION 1-->
           <table
             class="table"
-            v-for="(game, i) in filterData"
-            :key="i"
+            v-for="(game) in filterData"
+            :key="game.codigo"
             :style="`background-color: ${game.color}`"
           >
             <thead>
@@ -56,21 +56,24 @@
     </div>
     <div class="row  justify-content-center">
       <div class="col-md-6">
-        <GamesList :productos="data" />
+        <GamesList :productos="dataGames" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapState } from "vuex";
+import { mapGetters, mapMutations, mapState } from "vuex";
 import GamesList from "@/components/GamesList.vue";
 export default {
   name: "BusquedaView",
   data() {
     return {
-     /*  findGameVmodel: "", OPCION 1*/
+      /*  findGameVmodel: "", OPCION 1*/
     };
+  },
+  components: {
+    GamesList,
   },
   computed: {
     ...mapGetters(["stockTotal", "filterData"]),
@@ -79,22 +82,30 @@ export default {
       stockTotal() {
       return this.$store.getters.stockTotal;
     }, */
-   /*  findGameSet() {
+    /*  findGameSet() {
       return this.findGame(this.findGameVmodel);
     }, OPCION 1*/
     /* Probando otra forma, mismo resultado linea de arriba
     findGame() {
       return this.$store.getters.findGame(this.findGameVmodel);
     }, */
-    ...mapState(["filter", "data"]),
+    ...mapState(["filter", "dataGames"]),
     /* ...mapState(["dataGames"]),  OPCION 1*/
     /*Probando otra forma, mismo resultado linea de arriba
        stockGames() {
       return this.$store.state.dataGames.length;
     }, */
+    filterProduct: {
+      get() {
+        return this.filter;
+      },
+      set(val) {
+        this.SET_FILTER(val);
+      },
+    },
   },
-  components: {
-    GamesList,
+  methods: {
+    ...mapMutations(["SET_FILTER"]),
   },
 };
 </script>

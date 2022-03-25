@@ -1,4 +1,3 @@
-import { fill } from "core-js/core/array";
 import Vue from "vue";
 import Vuex from "vuex";
 
@@ -25,13 +24,16 @@ const store = new Vuex.Store({
       });
     }, */
     filterData(state) {
-      return state.data.filter((fil) => fill.codigo.includes(state.filter));
+      return state.dataGames.filter((fill) => fill.codigo.includes(state.filter));
     },
   },
   mutations: {
     SET_DATA(state, payload) {
       state.dataGames = payload;
       console.log(payload);
+    },
+    SET_FILTER(state, payload) {
+      state.filter = payload;
     },
   },
   actions: {

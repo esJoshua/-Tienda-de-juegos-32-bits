@@ -2,13 +2,13 @@
   <div>
     <hr />
     <ul>
-    <!--   <li
+      <!--   <li
         v-for="(game, i) in dataGames"
         :key="i"
         :style="`background-color: ${game.color}`"
       > OPCION 1-->
       <li
-        v-for="(game) in productos"
+        v-for="game in productos"
         :key="game.codigo"
         :style="`background-color: ${game.color}`"
       >
