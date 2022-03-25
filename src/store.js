@@ -6,7 +6,7 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
     dataGames: [],
-      },
+  },
   getters: {
     stockTotal(state) {
       return state.dataGames.reduce((accumulator, dataGames) => {
@@ -17,7 +17,7 @@ const store = new Vuex.Store({
     },
     findGame: (state) => (codigo) => {
       return state.dataGames.filter((game) => {
-        console.log(codigo)
+        console.log(codigo);
         return game.codigo == codigo;
       });
     },

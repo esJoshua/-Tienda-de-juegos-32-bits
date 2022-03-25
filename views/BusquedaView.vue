@@ -1,6 +1,6 @@
 <template>
   <div class="container mt-5">
-        <div class="row">
+    <div class="row">
       <div class="input-group mb-3 col-12 text-center justify-content-evenly">
         <div>
           <span class="input-group-text">Escribe el codigo del juego</span>
@@ -63,23 +63,10 @@ export default {
   },
   computed: {
     ...mapGetters(["stockTotal", "findGame"]),
-    /*  Probando otra forma, mismo resultado linea de arriba
-      stockTotal() {
-      return this.$store.getters.stockTotal;
-    }, */
+    ...mapState(["dataGames"]),
     findGameSet() {
       return this.findGame(this.findGameVmodel);
     },
-    /* Probando otra forma, mismo resultado linea de arriba 
-    findGame() {
-      return this.$store.getters.findGame(this.findGameVmodel);
-    }, */
-
-    ...mapState(["dataGames"]),
-    /*Probando otra forma, mismo resultado linea de arriba
-       stockGames() {
-      return this.$store.state.dataGames.length;
-    }, */
   },
   components: {
     GamesList,
@@ -87,5 +74,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
