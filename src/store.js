@@ -29,7 +29,6 @@ const store = new Vuex.Store({
   mutations: {
     SET_DATA(state, payload) {
       state.dataGames = payload;
-      console.log(payload);
     },
     SET_STOCK(state, payload) {
       setTimeout(() => {
