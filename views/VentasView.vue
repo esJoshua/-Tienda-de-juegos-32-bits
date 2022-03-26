@@ -1,12 +1,8 @@
 <template>
   <div class="container mt-5">
-    <div class="row">
-      <div class="col-12">
-        <h3>Juegos con stock disponible: {{ gameWstock.length }} Títulos</h3>
-      </div>
-    </div>
-    <div class="row">
-      <table class="col-md-6">
+    <div class="row flex text-center justify-content-center">
+      <h3>Juegos con stock disponible: {{ gameWstock.length }} Títulos</h3>
+      <table class="col-md-6 mt-5">
         <thead>
           <tr>
             <th scope="col">Codigo</th>
@@ -47,7 +43,6 @@ export default {
         nombre: game.nombre,
         precio: game.precio,
       });
-
     },
   },
 };

@@ -11,8 +11,6 @@ const store = new Vuex.Store({
   getters: {
     stockTotal(state) {
       return state.dataGames.reduce((accumulator, dataGames) => {
-        console.log("acumulator:" + accumulator);
-        console.log("dataGames:" + dataGames.stock);
         return accumulator + dataGames.stock;
       }, 0);
     },
@@ -34,12 +32,19 @@ const store = new Vuex.Store({
       console.log(payload);
     },
     SET_STOCK(state, payload) {
-      state.dataGames.map((games) => {
-        if (games.codigo === payload) games.stock--;
-      });
+      setTimeout(() => {
+        state.dataGames.map((games) => {
+          if (games.codigo === payload) games.stock--;
+        });
+      }, 1000);
     },
     PUSH_SALES(state, payload) {
-      state.sales.push(payload);
+      setTimeout(() => {
+        state.sales.push(payload);
+      }, 2000);
+      setTimeout(() => {
+        alert("Venta Procesada");
+      }, 3000);
     },
   },
   actions: {

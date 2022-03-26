@@ -1,16 +1,17 @@
 <template>
   <div class="container mt-5">
     <div class="row">
-      <div class="input-group mb-3 col-12 text-center justify-content-evenly">
+      <div class="input-group mb-3 text-center justify-content-evenly">
         <div>
           <span class="input-group-text">Escribe el codigo del juego</span>
           <input
             type="text"
             class="form-control text-center"
+            placeholder="Ejemplo: 0001"
             v-model="findGameVmodel"
           />
         </div>
-        <div class="col-6">
+        <div class="col-6" v-show="findGameVmodel.length > 3">
           <table
             class="table"
             v-for="(game, i) in findGameSet"
