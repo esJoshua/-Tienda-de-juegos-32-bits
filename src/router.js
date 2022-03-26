@@ -27,5 +27,10 @@ export default new Router({
       name: "total",
       component: () => import("../views/TotalView.vue"),
     },
+    {
+      path: "*",
+      name: "error404",
+      component: () => import("../views/Error404View.vue"),
+    },
   ],
 });

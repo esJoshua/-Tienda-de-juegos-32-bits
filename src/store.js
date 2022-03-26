@@ -6,6 +6,7 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
     dataGames: [],
+    sales: [],
   },
   getters: {
     stockTotal(state) {
@@ -18,11 +19,27 @@ const store = new Vuex.Store({
     findGame: (state) => (codigo) => {
       return state.dataGames.filter((game) => game.codigo === codigo);
     },
+    gameWstock(state) {
+      return state.dataGames.filter((game) => game.stock > 0);
+    },
+    totalSales(state) {
+      return state.sales.reduce((accumulator, sales) => {
+        return accumulator + sales.precio;
+      }, 0);
+    },
   },
   mutations: {
     SET_DATA(state, payload) {
       state.dataGames = payload;
       console.log(payload);
+    },
+    SET_STOCK(state, payload) {
+      state.dataGames.map((games) => {
+        if (games.codigo === payload) games.stock--;
+      });
+    },
+    PUSH_SALES(state, payload) {
+      state.sales.push(payload);
     },
   },
   actions: {

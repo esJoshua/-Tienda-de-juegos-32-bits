@@ -9,5 +9,7 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+  name: "InicioView",
+};
 </script>
