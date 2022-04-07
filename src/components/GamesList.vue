@@ -3,8 +3,8 @@
     <hr />
     <ul>
       <li
-        v-for="(game, i) in gameListProps"
-        :key="i"
+        v-for="game in gameListProps"
+        :key="game.codigo"
         :style="`background-color: ${game.color}`"
       >
         {{ game.codigo }} | {{ game.nombre }} | {{ game.stock }} | ${{
@@ -26,3 +26,11 @@ export default {
   },
 };
 </script>
+<style scoped>
+li {
+  color: white;
+}
+li:nth-child(4),
+::marker {  color: black;
+}
+</style>

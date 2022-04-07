@@ -40,10 +40,8 @@ const store = new Vuex.Store({
     PUSH_SALES(state, payload) {
       setTimeout(() => {
         state.sales.push(payload);
-      }, 2000);
-      setTimeout(() => {
-        alert("Venta Procesada");
-      }, 3000);
+      }, 1000);
+      alert(`Venta Procesada: juego ${payload.nombre}`);
     },
   },
   actions: {

@@ -12,15 +12,12 @@
           />
         </div>
         <div class="col-6" v-show="findGameVmodel.length > 3">
-          <table
-            class="table"
-            v-for="(game, i) in findGameSet"
-            :key="i"
-            :style="`background-color: ${game.color}`"
-          >
+          <table class="table" v-for="game in findGameSet" :key="game.codigo">
             <thead>
               <tr>
-                <th scope="col">Codigo</th>
+                <th scope="col" :style="`background-color: ${game.color}`">
+                  Codigo
+                </th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Stock</th>
                 <th scope="col">Precio</th>

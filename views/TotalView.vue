@@ -15,7 +15,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(game, i) in sales" :key="i">
+            <tr v-for="game in sales" :key="game.codigo">
               <th scope="row">{{ game.codigo }}</th>
               <td>{{ game.nombre }}</td>
               <td>${{ game.precio.toLocaleString("DE") }}</td>
